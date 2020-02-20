@@ -1,7 +1,7 @@
 import { FETCH_DATA, FETCH_SUCCESS, FETCH_FAIL, ADD_NUM, SUB_NUM } from '../actions/actions'
 
 const initialState = {
-   character: {},
+   character: [],
    number: 1,
    error: '',
    isFetching: false
@@ -13,7 +13,6 @@ export const Reducer = (state = initialState, action) => {
          return {
             ...state,
             isFetching: true,
-            character: []
          }
       case FETCH_SUCCESS:
          return {
@@ -30,7 +29,7 @@ export const Reducer = (state = initialState, action) => {
          }
       case ADD_NUM:
          let addNum = state.number
-         if (addNum < 500) {
+         if (addNum < 88) {
             addNum += 1
          }
          console.log(addNum)

@@ -6,22 +6,27 @@ import Container from './components/container'
 import { getData, addNum, subNum } from './actions/actions'
 
 
-function App(props) {
+function App({ number, character, error, isFetching, getData, addNum, subNum }) {
    useEffect(() => {
-      props.getData(props.number)
-   }, [props.number])
+      getData(number)
+   }, [number])
    const getNextData = e => {
       e.preventDefault()
-      props.addNum()
+      addNum()
    }
    const getPrevData = e => {
       e.preventDefault()
-      props.subNum()
+      subNum()
    }
    return (
       <div className="App">
-         StarWars Characters
-         <Container error={props.error} isFetching={props.isFetching} getNextData={getNextData} getPrevData={getPrevData} character={props.character} />
+         <p>StarWars Characters</p>
+         <Container
+            error={error}
+            isFetching={isFetching}
+            getNextData={getNextData}
+            getPrevData={getPrevData}
+            character={character} />
       </div>
    );
 }
